@@ -166,6 +166,6 @@ Este projeto está sob a licença [MIT](LICENSE).
 
 ## 👨‍💻 Autor
 
-**Maxwell Viana** - [GitHub](https://github.com/vmaxb)
+**Maxwell Viana** - [GitHub](https://github.com/vmaxbh?tab=repositories)
 
 Desenvolvedor de Automação de Testes | QA Engineer

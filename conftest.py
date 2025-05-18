@@ -5,7 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import logging
 import os
 import shutil
-import sys
+from datetime import datetime
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO)
@@ -18,6 +18,22 @@ def pytest_addoption(parser):
         default=False,
         help="Executar os testes em modo headless"
     )
+
+@pytest.hookimpl(tryfirst=True)
+def pytest_configure(config):
+    """Configuração do pytest para gerar relatório HTML"""
+    # Criar diretório para relatórios se não existir
+    report_dir = "reports"
+    if not os.path.exists(report_dir):
+        os.makedirs(report_dir)
+
+    # Configurar o relatório HTML
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = os.path.join(report_dir, f"report_{timestamp}.html")
+
+    # Adicionar a opção de relatório HTML
+    config.option.htmlpath = report_path
+    config.option.self_contained_html = True
 
 def abort_test(driver=None, message="Teste abortado"):
     """Função para abortar a execução do teste de forma limpa"""

@@ -20,6 +20,9 @@ dt_planettech/
 ├── screenshots/               # Diretório para capturas de tela
 │   └── [arquivos de screenshot]  # Screenshots com timestamp
 │
+├── reports/                   # Diretório para relatórios HTML
+│   └── report.html           # Relatório de execução dos testes
+│
 ├── requirements.txt           # Dependências do projeto
 └── README.md                 # Este arquivo
 ```
@@ -30,12 +33,13 @@ dt_planettech/
 - Selenium WebDriver
 - Pytest
 - ChromeDriver (gerenciado automaticamente)
+- Pytest-HTML (para relatórios)
 
 ## 📦 Instalação
 
 1. Clone o repositório:
 ```bash
-git clone [https://github.com/vmaxbh/DESAFIO_TECNICO_PLANETTECH.git]
+git clone https://github.com/vmaxbh/DESAFIO_TECNICO_PLANETTECH.git
 cd dt_planettech
 ```
 
@@ -51,17 +55,35 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
+4. Instale o pytest-html:
+```bash
+pip install pytest-html
+```
+
 ## 🚀 Executando os Testes
 
 ### Modo Normal (com interface gráfica)
 ```bash
-pytest tests/test_register_and_login.py -v
+pytest tests/test_register_and_login.py -v --html=reports/report.html
 ```
 
 ### Modo Headless (sem interface gráfica)
 ```bash
-pytest tests/test_register_and_login.py -v --headless
+pytest tests/test_register_and_login.py -v --headless --html=reports/report.html
 ```
+
+## 📊 Relatórios HTML
+
+O projeto utiliza o pytest-html para gerar relatórios detalhados da execução dos testes. Os relatórios incluem:
+
+- Resumo da execução
+- Detalhes dos testes executados
+- Status de cada teste (passou/falhou)
+- Tempo de execução
+- Capturas de tela (quando disponíveis)
+- Stack trace de erros (quando ocorrem)
+
+Os relatórios são gerados no diretório `reports/` com o nome `report.html`. Para visualizar o relatório, basta abrir o arquivo HTML em qualquer navegador web.
 
 ## 📸 Capturas de Tela
 
@@ -128,6 +150,7 @@ O projeto utiliza logging para:
 7. Verificação do login
 8. Captura de screenshots em cada etapa
 9. Limpeza e finalização
+10. Geração do relatório HTML
 
 ## 🤝 Contribuição
 

@@ -35,7 +35,7 @@ dt_planettech/
 
 1. Clone o repositório:
 ```bash
-git clone [URL_DO_REPOSITÓRIO]
+git clone [https://github.com/vmaxbh/DESAFIO_TECNICO_PLANETTECH.git]
 cd dt_planettech
 ```
 
